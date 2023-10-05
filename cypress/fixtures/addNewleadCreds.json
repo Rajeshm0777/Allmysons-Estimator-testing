@@ -1,0 +1,10 @@
+{
+   "FirstName": "Test",
+   "LastName" : "Lead",
+   "MoveDate" : "23-09-2023",
+   "OrginZip" : "75007",
+   "Email"    : "mrajesh@in.allmysons.com",
+   "PhoneNumber":"321654987",
+   "moveType" : "Local",
+   "sourceType":"Self Generated"
+}
