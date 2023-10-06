@@ -81,6 +81,24 @@ describe('estimator', () => {
     cy.wait(10000)
     cy.xpath('//a[text()=" View Quote"]').realClick()
     cy.wait(10000)
+    cy.get('#EstimatorSignatureCanvas').then($canvas=>{
+     const canvaswidth = $canvas.width();
+     const canvasHeight =$canvas.height();
+
+     const canvasCenterX =canvaswidth/ 2;
+     const canvasCenterY =canvasHeight/ 2;
+
+     const buttonX =canvasCenterX +((canvasCenterX /3)*2)
+     const buttonY =canvasCenterX +((canvasCenterY /3)*2)
+     cy.wrap($canvas)
+     .scrollIntoView()
+     .click(canvasCenterX,canvasCenterY)
+
+    }
+
+    )
+
+
     //cy.get('[ng-model="EstimatedForm.objCust.estimatetype"]').select('Binding',{force: true})
     //cy.get('#EstimatorSignatureCanvas').type('ghkhlrkha')
     // const canvas =cy.get("#EstimatorSignatureCanvas");
