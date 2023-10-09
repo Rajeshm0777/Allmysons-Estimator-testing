@@ -3,6 +3,7 @@ import newlead from "../fixtures/addNewleadCreds.json"
 import leadDetails from "../Pajeobject.js/leadDetails.po"
 import leadData from "../fixtures/leadDetailsPage.json"
 import cubeSheet from "../Pajeobject.js/cubeSheet.po"
+import canvas from "../Pajeobject.js/canvas.po"
 var moment = require('moment');
 
 describe('estimator', () => {
@@ -81,22 +82,193 @@ describe('estimator', () => {
     cy.wait(10000)
     cy.xpath('//a[text()=" View Quote"]').realClick()
     cy.wait(10000)
-    cy.get('#EstimatorSignatureCanvas').then($canvas=>{
-     const canvaswidth = $canvas.width();
-     const canvasHeight =$canvas.height();
 
-     const canvasCenterX =canvaswidth/ 2;
-     const canvasCenterY =canvasHeight/ 2;
+    canvas.canvasSignature()
+    cy.get('[ng-click="emailPopup()"]').realClick();
+    cy.get('#tinymce').realTouch();
+    cy.realType('Test ')
+    cy.get('[ng-click="emailSend(CustomerEmail,Body)"]').click({force:true})
+    
+    cy.contains('Email sent successfully.').should('be.visible')
+    cy.get('[ng-click="$buttonTapped(button, $event)"]').realClick();
+    // canvas.canvaselement().then($canvas=>{
+    //  const canvaswidth = $canvas.width();
+    //  const canvasHeight =$canvas.height();
 
-     const buttonX =canvasCenterX +((canvasCenterX /3)*2)
-     const buttonY =canvasCenterX +((canvasCenterY /3)*2)
-     cy.wrap($canvas)
-     .scrollIntoView()
-     .click(canvasCenterX,canvasCenterY)
+    //  const canvasCenterX =canvaswidth/0;
+    //  const canvasCenterY =canvasHeight/0;
+      
+    //  cy.wrap($canvas)
+    //  .scrollIntoView()
+    //  .click(canvasCenterX,canvasCenterY,)
 
-    }
+    // })
+    // canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 2;
+    //   const canvasCenterY =canvasHeight/ 2;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 3;
+    //   const canvasCenterY =canvasHeight/ 3;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 4;
+    //   const canvasCenterY =canvasHeight/ 4;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 5;
+    //   const canvasCenterY =canvasHeight/ 5;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 6;
+    //   const canvasCenterY =canvasHeight/ 6;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 7;
+    //   const canvasCenterY =canvasHeight/ 7;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 8;
+    //   const canvasCenterY =canvasHeight/ 8;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 9;
+    //   const canvasCenterY =canvasHeight/ 9;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 10;
+    //   const canvasCenterY =canvasHeight/ 10;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 11;
+    //   const canvasCenterY =canvasHeight/ 11;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 12;
+    //   const canvasCenterY =canvasHeight/ 12;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 13;
+    //   const canvasCenterY =canvasHeight/ 13;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 14;
+    //   const canvasCenterY =canvasHeight/ 14;    
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    //  canvas.canvaselement().then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+      
 
-    )
+    //   const canvasCenterX =canvaswidth/ 15;
+    //   const canvasCenterY =canvasHeight/ 15;
+         
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY,)
+ 
+    //  })
+    
+    // {release:false})
+    //  .trigger('mousemove',{ clientX: 200, clientY: 300 })
+    //  .trigger('mouseup',{ clientX: 400, clientY: 400 })
+    //  .trigger('mouseleave')
+//     cy.get("[datatestid='xyz']").trigger('mousedown','center')
+// .click({release:false})
+// .trigger('mousemove',{ clientX: 200, clientY: 300 })
+// .trigger('mouseup',5,5)
+// .trigger('mouseleave');
 
 
     //cy.get('[ng-model="EstimatedForm.objCust.estimatetype"]').select('Binding',{force: true})
@@ -104,19 +276,32 @@ describe('estimator', () => {
     // const canvas =cy.get("#EstimatorSignatureCanvas");
     // const ctx = canvas("2d");
     // ctx.font = "30px Arial";
-    // ctx.fillText("type",10,50);    
+    // ctx.fillText("type",10,50); 
+    // cy.get('#EstimatorSignatureCanvas').trigger('mousedown', { button: 0 });
+    // cy.get('#EstimatorSignatureCanvas').trigger('mousemove', { clientX: 100, clientY: 100 });
+    // cy.get('#EstimatorSignatureCanvas').trigger('mouseup', { force: true })  
+    
+    // cy.get('#EstimatorSignatureCanvas').then($canvas=>{
+    //   const canvaswidth = $canvas.width();
+    //   const canvasHeight =$canvas.height();
+ 
+    //   const canvasCenterX =canvaswidth/ 3;
+    //   const canvasCenterY =canvasHeight/ 3;
+ 
+    //   const buttonX =canvasCenterX +((canvasCenterX /3)*3)
+    //   const buttonY =canvasCenterY +((canvasCenterY /3)*3)
+    //   cy.wrap($canvas)
+    //   .scrollIntoView()
+    //   .click(canvasCenterX,canvasCenterY)
+ 
+    //  }
+ 
+    //  )
 
 
-
-
-
-
-
-
-
-
-
-
+    //  const buttonX =canvasCenterX +((canvasCenterX /3)*2)
+    //  const buttonY =canvasCenterY +((canvasCenterY /3)*2)
+    //  const buttonZ =canvasCenterZ +((canvasCenterZ /3)*2)
 
 
   })
