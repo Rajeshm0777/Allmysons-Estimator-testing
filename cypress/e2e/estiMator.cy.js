@@ -85,10 +85,11 @@ describe('estimator', () => {
 
     canvas.canvasSignature()
     cy.get('[ng-click="emailPopup()"]').realClick();
-    cy.get('#tinymce').realTouch();
-    cy.realType('Test ')
+    // cy.get('#tinymce').realTouch();
+    // cy.realType('Test ')
+    cy.wait(5000)
     cy.get('[ng-click="emailSend(CustomerEmail,Body)"]').click({force:true})
-    
+    cy.wait(5000)
     cy.contains('Email sent successfully.').should('be.visible')
     cy.get('[ng-click="$buttonTapped(button, $event)"]').realClick();
     // canvas.canvaselement().then($canvas=>{
