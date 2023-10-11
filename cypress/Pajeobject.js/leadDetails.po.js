@@ -12,7 +12,7 @@ class leadDetailspage{
         return cy.get('[ng-model="selectedAddTypeTo"]')
     }
     destinationZipcode(){
-        return cy.get('[ng-model="lead.ToZip"]')
+        return cy.get('[ng-blur="updateStateCityTo()"]')
     }
     clickSaveBtn(){
         return cy.get('[title="Save"]')
@@ -24,16 +24,18 @@ class leadDetailspage{
         return cy.get('[ng-click="$buttonTapped(button, $event)"]')
     }
 
-    leadModule(Pageheader,phoneNum2,orginType,destinationType,orginZip,leadsucess){
+    leadModule(Pageheader,phoneNum2,orginType,orginZip,destinationType,leadsucess){
     leadDetails.leadDetailsHeader().should("have.text",Pageheader)
     leadDetails.getPhone2().focus();
     cy.realType(phoneNum2);
     cy.wait(4000)
     leadDetails.selectOrginType().realTouch().select(orginType)
-    cy.wait(4000)
-    leadDetails.selectDestinationType().realTouch().select(destinationType)
-    leadDetails.destinationZipcode().clear()
+    cy.wait(8000)
+    leadDetails.destinationZipcode().focus().clear()
     cy.realType(orginZip)
+    cy.wait(10000)
+    leadDetails.selectDestinationType().realTouch().select(destinationType)   
+    cy.wait(10000)
     leadDetails.clickSaveBtn().click({ force: true });
     cy.wait(6000)
     leadDetails.successMsg().should('have.text', leadsucess)

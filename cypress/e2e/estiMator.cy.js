@@ -20,10 +20,10 @@ describe('estimator', () => {
     addNewLead.addnewleadmodule(newlead.moveType, newlead.sourceType, newlead.FirstName,
       newlead.LastName, currentDate, newlead.OrginZip, newlead.Email, newlead.PhoneNumber, newlead.PhoneNumber)
 
-    cy.wait(7000)
+    cy.wait(10000)
     //continue Lead Details Page 
     leadDetails.leadModule(leadData.pagehead, leadData.phoneNum2, leadData.orginType,
-      leadData.destinationType, leadData.orginZip, leadData.Sucessmsg)
+      leadData.orginZip,leadData.destinationType, leadData.Sucessmsg)
 
     // leadDetails.leadDetailsHeader().should("have.text", "Lead Details")
     // leadDetails.getPhone2().focus();
@@ -79,9 +79,9 @@ describe('estimator', () => {
     cy.xpath('//button[text()="OK"]').click({ force: true })
     cy.wait(3000)
     cy.get('[ng-click="gotoEstimateCostPage()"]').click({ force: true })
-    cy.wait(10000)
+    cy.wait(11000)
     cy.xpath('//a[text()=" View Quote"]').realClick()
-    cy.wait(10000)
+    cy.wait(11000)
 
     canvas.canvasSignature()
     cy.get('[ng-click="emailPopup()"]').realClick();
