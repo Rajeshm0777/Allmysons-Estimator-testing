@@ -14,7 +14,7 @@ module.exports = defineConfig({
 
     "baseUrl" : "http://estimatorapptesting.allmysons.com/",//http://estimatorapptesting.allmysons.com/
     "defaultCommandTimeout": 5000,
-    "pageLoadTimeout":9000,
+    "pageLoadTimeout":5000,
     "video": true,
     "viewportWidth" : 1920,
     "viewportHeight": 1080,
