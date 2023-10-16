@@ -12,9 +12,9 @@ module.exports = defineConfig({
   },
   e2e: {
 
-    "baseUrl" : "http://estimatorapptesting.allmysons.com/",
-    "defaultCommandTimeout": 4000,
-    "pageLoadTimeout":6000,
+    "baseUrl" : "http://estimatorapptesting.allmysons.com/",//http://estimatorapptesting.allmysons.com/
+    "defaultCommandTimeout": 5000,
+    "pageLoadTimeout":9000,
     "video": true,
     "viewportWidth" : 1920,
     "viewportHeight": 1080,
