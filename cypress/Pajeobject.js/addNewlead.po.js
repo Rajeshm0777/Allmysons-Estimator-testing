@@ -49,7 +49,7 @@ class addLeadPage{
         this.getLastNameField().focus();
         cy.realType(leadLastname)
         cy.wait(4000)
-        this.getMovedate().realTouch();                       //.invoke('attr', 'type', "text").focus();  
+        this.getMovedate().realTouch();         //.invoke('attr', 'type', "text").focus();  
     
         cy.realType(currentDate)
         this.getOrginZip().realTouch()
