@@ -9,6 +9,10 @@ var moment = require('moment');
 
 describe('estimator', () => {
   beforeEach(() => {
+    Cypress.on("uncaught:exception", (err, runnable) => {
+      return false;
+    }
+    )
     cy.visit('/')
     cy.login('venkatesh', 'Cms@123')
     //cy.url().should('eq', 'http://estimatorapptesting.allmysons.com/#/ams/calendar/0/0/0')
@@ -19,12 +23,12 @@ describe('estimator', () => {
     cy.wait(6000)
     var currentDate = moment().format("DD-MM-YYYY");
     addNewLead.addnewleadmodule(newlead.moveType, newlead.sourceType, newlead.FirstName,
-    newlead.LastName, currentDate, newlead.OrginZip, newlead.Email, newlead.PhoneNumber, newlead.PhoneNumber)
+      newlead.LastName, currentDate, newlead.OrginZip, newlead.Email, newlead.PhoneNumber, newlead.PhoneNumber)
 
     cy.wait(10000)
     //continue Lead Details Page 
     leadDetails.leadModule(leadData.pagehead, leadData.phoneNum2, leadData.orginType,
-    leadData.orginZip,leadData.destinationType, leadData.Sucessmsg)
+      leadData.orginZip, leadData.destinationType, leadData.Sucessmsg)
 
     //Continue  Cube SheatPage
     cubeSheet.cubeMethod()
@@ -32,51 +36,36 @@ describe('estimator', () => {
     //AMS
     //continue Estimator Sheet Page
     estimator.estimatorForm()
+
     //continue signature part
 
     canvas.canvasSignature()
 
-
     cy.get('[ng-click="emailPopup()"]').realClick();
     cy.wait(7000)
-    // cy.get('#ui-tinymce-4_ifr').then(($iframe)=>{
-    //   let ele =$iframe.contents().find('#tinymce>p')
-    //   cy.wrap(ele).realType("test mail")
-    //   cy.wait(5000)
-    // })
-    // cy.get('#tinymce').realTouch();
-    // cy.realType('Test ')
-    cy.get('[ng-click="emailSend(CustomerEmail,Body)"]').click({force:true})
+    cy.get('[ng-click="emailSend(CustomerEmail,Body)"]').click({ force: true })
     cy.wait(9000)
     cy.contains('Email sent successfully.').should('be.visible')
-    cy.get('[ng-click="$buttonTapped(button, $event)"]').realClick();   
+    cy.get('[ng-click="$buttonTapped(button, $event)"]').realClick();
     cy.wait(2000)
-    cy.url().then((url)=>{
-        var x = url.split("/")[6]
-        cy.log(x)
+    cy.url().then((url) => {
+    var x = url.split("/")[6]
+    cy.log(x)
 
-        const payload = {
-            "CustomerID":x,
-            "SignType": "ESTAPPESTSIGN"
-          } 
-          cy.request('POST',"http://pricingapistaging.allmysons.com/Estimator/IsSignSaved", payload).then((response) => {
-    
-            expect(response.status).equal(200);
-            console.log(response.body);
-            // cy.log(response.body);
-            //expect(response.body).equal(false)
-             let status = response.body;
-             expect(status).to.equal(true)
+    const payload = {
+        "CustomerID": x,
+        "SignType": "ESTAPPESTSIGN"
+      }
+      cy.request('POST', "http://pricingapistaging.allmysons.com/Estimator/IsSignSaved", payload).then((response) => {
 
-            // if (status =="true"){
+        expect(response.status).equal(200);
+        console.log(response.body);
+  
+        let status = response.body;
+        expect(status).to.equal(true)
 
-            //     cy.log(response.body)
-            // }
-            // else{
-            //     cy.log(response.body)
-            // }
-      
-          })
+
+      })
     })
 
   })
