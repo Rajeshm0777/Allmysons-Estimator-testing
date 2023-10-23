@@ -5,13 +5,14 @@ module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
+
     reportPageTitle: 'custom-title',
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
   },
   e2e: {
-
+    "chromeWebSecurity":false,
     "baseUrl" : "http://estimatorapptesting.allmysons.com/",//http://estimatorapptesting.allmysons.com/
     "defaultCommandTimeout": 5000,
     "pageLoadTimeout":7000,
@@ -21,8 +22,8 @@ module.exports = defineConfig({
     "retries":{ "runMode": 1, "openMode": 1 },
     env:{
 
-        "customerid":"", 
-        "token": ""
+        "customerid":null, 
+             "token": null
 
     },
     setupNodeEvents(on, config) {
