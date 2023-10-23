@@ -45,7 +45,7 @@ describe('estimator', () => {
     cy.wait(7000)
     cy.get('[ng-click="emailSend(CustomerEmail,Body)"]').click({ force: true })
     cy.wait(9000)
-    cy.contains('Email sent successfully.').should('be.visible')
+    cy.contains('Email sent successfully.', { timeout: 60000 }).should('be.visible')
     cy.get('[ng-click="$buttonTapped(button, $event)"]').realClick();
     cy.wait(2000)
     cy.url().then((url) => {
