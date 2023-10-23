@@ -46,7 +46,6 @@ class addLeadPage{
 
         this.getFirstNameField().focus();
         cy.realType(leadFirstname)
-        cy.wait(5000)
         this.getLastNameField().focus();
         cy.realType(leadLastname)
         cy.wait(5000)
@@ -56,18 +55,18 @@ class addLeadPage{
         cy.wait(5000)
         this.getOrginZip().realTouch()
         cy.realType(OrginZip)
-        cy.wait(5000)
+        
         this.getMoveType().realTouch().select(value1)
         this.getEmailField().focus();
         cy.realType(Email)
-        cy.wait(5000)
+        
         this.getPhoneNumber().focus();
         cy.realType(PhoneNumber);
-        cy.wait(5000)                           // type into focused field
+                                    // type into focused field
         this.getTelephone().focus();
         cy.realType(PhoneNumber);
         //this.getTelephone().realType(newlead.PhoneNumber)
-        cy.wait(5000)
+        
         this.getSource().realTouch().select(value2).should('be.visible')
         this.getSubmitbtn().click({ force: true })
         cy.wait(6000)
