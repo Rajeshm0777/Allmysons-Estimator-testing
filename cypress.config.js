@@ -12,8 +12,8 @@ module.exports = defineConfig({
     saveAllAttempts: false,
   },
   e2e: {
-    "chromeWebSecurity":false,
-    "baseUrl" : "http://estimatorapptesting.allmysons.com/",//http://estimatorapptesting.allmysons.com/
+  
+    "baseUrl" : "http://estimatorappuat.allmysons.com",//http://estimatorapptesting.allmysons.com/
     "defaultCommandTimeout": 5000,
     "pageLoadTimeout":7000,
     "video": true,

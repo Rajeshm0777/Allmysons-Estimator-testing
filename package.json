@@ -5,9 +5,9 @@
     "cypress-real-events": "^1.10.3",
     "moment": "^2.29.4"
   },
-  "name": "learning",
+  "name": "allmysons",
   "version": "1.0.0",
-  "description": "learningcypress",
+  "description": "allmysons",
   "main": "index.js",
   "devDependencies": {
     "@4tw/cypress-drag-drop": "^2.2.3",

@@ -30,7 +30,7 @@ class addLeadPage{
         return cy.get('[ng-model="newLead.Src"]')
     }
     getSubmitbtn(){
-        return cy.get('[class="button button-positive"]')
+        return cy.get('[class="button button-positive"]', { timeout: 60000 })
     }
     successMsgHeader(){
         return cy.contains('Success')
@@ -68,9 +68,10 @@ class addLeadPage{
         //this.getTelephone().realType(newlead.PhoneNumber)
         
         this.getSource().realTouch().select(value2).should('be.visible')
+        cy.wait(6000)
         this.getSubmitbtn().click({ force: true })
         cy.wait(6000)
-        this.successMsgHeader().should('be.visible')
+        this.successMsgHeader().should('be.visible').should('have.text', 'Success', { timeout: 10000 });
         this.newLeadSuccessFullMsg().should('be.visible')
         this.getOkBtn().realClick();
        

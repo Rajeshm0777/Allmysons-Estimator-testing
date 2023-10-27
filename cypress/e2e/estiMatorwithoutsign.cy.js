@@ -8,6 +8,7 @@ import estimator from "../Pajeobject.js/estimateForm.po"
 import interstate from "../Pajeobject.js/interState/interstateflow.po"
 
 var moment = require('moment');
+var currentDate = moment().format("DD-MM-YYYY");
 var CiD;
 var customerToken;
 
@@ -24,11 +25,11 @@ describe('estimator', () => {
         cy.wait(6000)
         addNewLead.addlead().realClick(); ({ force: true })
         cy.wait(6000)
-        var currentDate = moment().format("DD-MM-YYYY");
-        addNewLead.addnewleadmodule(newlead.moveType, newlead.sourceType, newlead.FirstName,
-            newlead.LastName, currentDate, newlead.OrginZip, newlead.Email, newlead.PhoneNumber, newlead.PhoneNumber)
+         currentDate = moment().format("DD-MM-YYYY");
+         addNewLead.addnewleadmodule(newlead.moveType, newlead.sourceType, newlead.FirstName,
+         newlead.LastName, currentDate, newlead.OrginZip, newlead.Email, newlead.PhoneNumber, newlead.PhoneNumber)
 
-        cy.wait(10000)
+         cy.wait(10000)
         //continue Lead Details Page 
         leadDetails.leadModule(leadData.pagehead, leadData.phoneNum2, leadData.orginType,
             leadData.orginZip, leadData.destinationType, leadData.Sucessmsg)

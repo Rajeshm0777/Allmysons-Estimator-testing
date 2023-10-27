@@ -1,7 +1,8 @@
 class interstatePage{
     
     clickElementContinue1(){
-        return cy.xpath('//span[@class="MuiTouchRipple-root"]', { timeout: 60000 })     
+        return cy.xpath('//span[@class="MuiTouchRipple-root"]'
+        )     
     }
     headerYourMove(){
         return cy.xpath('//h1[text()="Your Move Includes"]')
