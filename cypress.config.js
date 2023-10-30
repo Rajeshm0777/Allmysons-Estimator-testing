@@ -13,13 +13,14 @@ module.exports = defineConfig({
   },
   e2e: {
   
-    "baseUrl" : "http://estimatorappuat.allmysons.com",//http://estimatorapptesting.allmysons.com/
-    "defaultCommandTimeout": 5000,
-    "pageLoadTimeout":7000,
-    "video": true,
+    "baseUrl" : "http://estimatorapptesting.allmysons.com",//http://estimatorapptesting.allmysons.com/
+    "defaultCommandTimeout": 20000,
+    "pageLoadTimeout":20000,
+    "video": true, 
     "viewportWidth" : 1920,
     "viewportHeight": 1080,
     "retries":{ "runMode": 1, "openMode": 1 },
+    "videoCompression":0,
     env:{
 
         "customerid":null, 

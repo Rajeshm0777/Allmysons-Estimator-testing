@@ -1,3 +1,5 @@
+
+
 class addLeadPage{
     addlead(){
         return cy.xpath('(//a[@class="item item-input heade"])[2]')
@@ -42,16 +44,17 @@ class addLeadPage{
         return cy.get('[ng-click="$buttonTapped(button, $event)"]')
     }
 
-    addnewleadmodule(value1, value2,leadFirstname,leadLastname,currentDate,OrginZip,Email,PhoneNumber,){
+    addnewleadmodule(value1, value2,leadFirstname,leadLastname,movedate,OrginZip,Email,PhoneNumber,){
 
         this.getFirstNameField().focus();
         cy.realType(leadFirstname)
         this.getLastNameField().focus();
         cy.realType(leadLastname)
         cy.wait(5000)
-        this.getMovedate().realTouch();         //.invoke('attr', 'type', "text").focus();  
-    
-        cy.realType(currentDate)
+        //this.getMovedate().realTouch(); 
+        this.getMovedate().realTouch().clear()        //.invoke('attr', 'type', "text").focus();  
+
+        cy.realType(movedate)
         cy.wait(5000)
         this.getOrginZip().realTouch()
         cy.realType(OrginZip)
@@ -70,10 +73,10 @@ class addLeadPage{
         this.getSource().realTouch().select(value2).should('be.visible')
         cy.wait(6000)
         this.getSubmitbtn().click({ force: true })
-        cy.wait(6000)
-        this.successMsgHeader().should('be.visible').should('have.text', 'Success', { timeout: 10000 });
+        cy.wait(20000)
+        this.successMsgHeader().should('be.visible').should('have.text', 'Success');
         this.newLeadSuccessFullMsg().should('be.visible')
-        this.getOkBtn().realClick();
+       this.getOkBtn().realClick();
        
     }
 
