@@ -36,6 +36,14 @@ Cypress.Commands.add('login', (username, password) => {
     login.getSubmitField().click()
 
 })
+Cypress.Commands.add('interstateLogin',(username,password)=>{
+    cy.get('[class="jss30 extcustomIcon"]').should('be.visible')
+    cy.get('#username').realTouch();
+    cy.realType(username)
+    cy.get('#password').realTouch();
+    cy.realType(password)
+    cy.get("#btnLOGIN").realClick();
+})
 
     
 

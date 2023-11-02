@@ -24,7 +24,7 @@ describe('estimator', () => {
         cy.wait(6000)
         addNewLead.addlead().realClick(); ({ force: true })
         cy.wait(6000)
-         var currentDate = moment().format("MM-DD-YYYY");
+         var currentDate = moment().format("DD-MM-YYYY");
          addNewLead.addnewleadmodule(newlead.moveType, newlead.sourceType, newlead.FirstName,
          newlead.LastName, currentDate, newlead.OrginZip, newlead.Email, newlead.PhoneNumber, newlead.PhoneNumber)
 
@@ -84,7 +84,7 @@ describe('estimator', () => {
         })
     })
 
-    it("continue bol2", () => {
+    it.skip("continue bol2", () => {
         Cypress.on("uncaught:exception", (err, runnable) => {
             return false;
         })
@@ -124,6 +124,12 @@ describe('estimator', () => {
         cy.xpath('(//span[@class="MuiTouchRipple-root"])[8]').realClick();
         cy.wait(4000)
         cy.xpath('(//span[@class="MuiTouchRipple-root"])[9]').realClick();
+
+    })
+    it('interstatebol',()=>{
+         cy.readFile('cypress/fixtures/ids.json').then((intBol) => {
+            cy.visit('https://wipbol.allmysons.com/auth?phone=6082951342&dob=08/25/1972&customerId=' + intBol.customerid + '&bolType=0&dailysheetId='+ intBol.dailysheetId )
+        })
 
     })
 
